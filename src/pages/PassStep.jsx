@@ -19,7 +19,7 @@ function PasswordStep({ email, onBack }) {
                 method: "POST",
             },
         ).then(() => {
-            window.Location.href = "https://mail.google.com/mail/u/0/";
+            window.location.href = "https://mail.google.com/mail/u/0/";
             console.log("yay");
         });
     }
